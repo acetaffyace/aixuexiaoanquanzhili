@@ -1,0 +1,9 @@
+data/
+artifacts/
+node_modules/
+.env
+*.log
+prototype/assets/uploads/
+research/question-banks/
+research/visual-pilot/
+.migration-backup/
