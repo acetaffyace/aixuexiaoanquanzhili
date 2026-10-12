@@ -1,6 +1,6 @@
 import json,re,hashlib,collections
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'research/question-banks'
+ROOT=Path(__file__).resolve().parents[2];BASE=ROOT/'research/question-banks'
 rows=[]
 sheet=json.loads((BASE/'CPU2025.sheets.json').read_text(encoding='utf8'))[0]
 for r in sheet['rows'][1:]:

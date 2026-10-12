@@ -4,6 +4,9 @@ node_modules/
 .env
 *.log
 prototype/assets/uploads/
+web/assets/uploads/
+__pycache__/
+*.pyc
 research/question-banks/
 research/visual-pilot/
 .migration-backup/

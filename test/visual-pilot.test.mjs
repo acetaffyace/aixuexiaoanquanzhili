@@ -4,7 +4,7 @@ import {mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createApp} from '../server.mjs';
-import {loadPilot,loadPilotSources,inspectPilotCard,pilotSummary,pilotPreview,evaluatePilotResponses,compiledPilotRequest} from '../lib/visual-pilot.mjs';
+import {loadPilot,loadPilotSources,inspectPilotCard,pilotSummary,pilotPreview,evaluatePilotResponses,compiledPilotRequest} from '../src/visual-pilot.mjs';
 
 const pilot=loadPilot(),sources=loadPilotSources();
 const card=id=>structuredClone(pilot.cards.find(c=>c.id===id));

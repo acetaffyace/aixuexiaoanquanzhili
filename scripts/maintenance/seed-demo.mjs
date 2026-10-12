@@ -1,9 +1,9 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {Store} from '../lib/store.mjs';
-import {sampleText} from '../lib/catalog.mjs';
-import {DemoProvider} from '../lib/provider.mjs';
-const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+import {Store} from '../../src/store.mjs';
+import {sampleText} from '../../src/catalog.mjs';
+import {DemoProvider} from '../../src/provider.mjs';
+const root=path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url))));
 const store=new Store(path.join(root,'data'));const provider=new DemoProvider();
 try {
   const result=store.import(sampleText);

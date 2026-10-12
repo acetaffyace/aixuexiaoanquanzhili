@@ -1,6 +1,6 @@
 import json,collections,sys,re
 from pathlib import Path
-BASE=Path(__file__).resolve().parents[1]/'research/question-banks'
+BASE=Path(__file__).resolve().parents[2]/'research/question-banks'
 rows=json.loads((BASE/'questions.json').read_text(encoding='utf8'))
 cpu=[r for r in rows if r['source']=='CPU2025'];groups=collections.defaultdict(list)
 for r in cpu:groups[(r['category'],r['type'])].append(r)

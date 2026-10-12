@@ -3,11 +3,11 @@ import {readFileSync,existsSync,writeFileSync,mkdirSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID,randomBytes,createHash,timingSafeEqual} from 'node:crypto';
-import {Store} from './lib/store.mjs';
-import {Learning} from './lib/learning.mjs';
-import {DemoProvider} from './lib/provider.mjs';
-import {sampleText,cases} from './lib/catalog.mjs';
-import {pilotPreview,pilotSource,evaluatePilotResponses,compiledPilotRequest} from './lib/visual-pilot.mjs';
+import {Store} from './src/store.mjs';
+import {Learning} from './src/learning.mjs';
+import {DemoProvider} from './src/provider.mjs';
+import {sampleText,cases} from './src/catalog.mjs';
+import {pilotPreview,pilotSource,evaluatePilotResponses,compiledPilotRequest} from './src/visual-pilot.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const digest=s=>createHash('sha256').update(String(s)).digest();
 const same=(a,b)=>timingSafeEqual(digest(a),digest(b));
@@ -62,7 +62,7 @@ export function createApp({dataDir=path.join(root,'data'),provider=new DemoProvi
       const data=String(b.image||'').match(/^data:image\/(png|jpeg);base64,([A-Za-z0-9+/=]+)$/);if(!data)throw new Error('请上传 PNG 或 JPEG');
       const raw=Buffer.from(data[2],'base64');if(raw.length>4000000)throw new Error('图片超过 4 MB');
       if(data[1]==='png'?!raw.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])):raw[0]!==255||raw[1]!==216)throw new Error('图片格式不正确');
-      const id=randomUUID();const name=id+'.'+(data[1]==='png'?'png':'jpg');const dir=path.join(root,'prototype/assets/uploads');mkdirSync(dir,{recursive:true});writeFileSync(path.join(dir,name),raw);
+      const id=randomUUID();const name=id+'.'+(data[1]==='png'?'png':'jpg');const dir=path.join(root,'web/assets/uploads');mkdirSync(dir,{recursive:true});writeFileSync(path.join(dir,name),raw);
       return json(res,201,learning.addCharacter({id,name:String(b.name).slice(0,60),reference:'assets/uploads/'+name,version:1,views:[],status:'reference-only'}));
      }
      if(route==='/characters/views'&&req.method==='POST')return json(res,200,await provider.characterViews((await body(req)).characterId));
@@ -78,7 +78,7 @@ export function createApp({dataDir=path.join(root,'data'),provider=new DemoProvi
     return json(res,404,{error:'接口不存在'});
    }
    if(!['GET','HEAD'].includes(req.method))return json(res,405,{error:'Method not allowed'});
-   const publicRoot=path.join(root,'prototype');const resource=['/','/teacher','/student'].includes(p)?'/index.html':decodeURIComponent(p);
+   const publicRoot=path.join(root,'web');const resource=['/','/teacher','/student'].includes(p)?'/index.html':decodeURIComponent(p);
    const file=path.resolve(publicRoot,'.'+resource);if(!file.startsWith(publicRoot+path.sep)||!existsSync(file))return json(res,404,{error:'文件不存在'});
    const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'}[path.extname(file)];
    if(!mime)return json(res,404,{error:'文件不可访问'});

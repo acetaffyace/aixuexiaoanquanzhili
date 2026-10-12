@@ -1,13 +1,17 @@
-import {chromium} from 'playwright';
 import {existsSync,mkdtempSync,mkdirSync,rmSync,writeFileSync,readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import {createApp} from '../server.mjs';
-import {loadPilot} from '../lib/visual-pilot.mjs';
+import {createApp} from '../../server.mjs';
+import {loadPilot} from '../../src/visual-pilot.mjs';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE?pathToFileURL(process.env.PLAYWRIGHT_MODULE).href:'playwright');
+// Report missing assets before launching a browser or opening a database.
+const configuredPilot=loadPilot();
+const missingAssets=[...new Set(configuredPilot.cards.filter(c=>c.interaction!=='blocked').flatMap(c=>c.visual.kind==='image'?[c.visual.image]:c.visual.images||[]))].filter(filename=>!existsSync(new URL('../../web/'+filename,import.meta.url)));
+assert.deepEqual(missingAssets,[],'Missing visual-pilot assets; restore the actual reviewed files.');
 
-const root=path.dirname(path.dirname(fileURLToPath(import.meta.url))),out=path.join(root,'artifacts/visual-pilot');mkdirSync(out,{recursive:true});
+const root=path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url)))),out=path.join(root,'artifacts/visual-pilot');mkdirSync(out,{recursive:true});
 const before=existsSync(path.join(root,'data/demo.sqlite'))?readFileSync(path.join(root,'data/demo.sqlite')):null;
 const dir=mkdtempSync(path.join(tmpdir(),'zhian-visual-pilot-browser-'));assert.ok(path.resolve(dir).startsWith(path.resolve(tmpdir())+path.sep));
 const app=createApp({dataDir:dir,jobDelay:0});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+app.server.address().port;

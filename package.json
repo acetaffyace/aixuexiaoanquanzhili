@@ -1,8 +1,17 @@
 {
   "name": "campus-safety-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "scripts": {"start": "node server.mjs", "test": "node --test test/core.test.mjs"},
-  "engines": {"node": ">=22.13"}
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/core.test.mjs",
+    "test:pilot": "node --test test/visual-pilot.test.mjs",
+    "verify:browser": "node scripts/verify/verify-browser.mjs",
+    "verify:pilot": "node scripts/verify/verify-visual-pilot-browser.mjs",
+    "templates:export": "node scripts/build/export-template-data.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
 }

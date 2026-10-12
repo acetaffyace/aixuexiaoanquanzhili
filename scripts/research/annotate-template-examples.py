@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'research/question-banks';rows={r['id']:r for r in json.loads((BASE/'questions.json').read_text(encoding='utf8'))}
+ROOT=Path(__file__).resolve().parents[2];BASE=ROOT/'research/question-banks';rows={r['id']:r for r in json.loads((BASE/'questions.json').read_text(encoding='utf8'))}
 # Manually selected after reading. Labels are concise paraphrases, not copied question banks.
 M=[
 ('CPU2025:434','手套跨区接触','T01','手套使用前情境与接触对象必须明确','普通内容设计'),

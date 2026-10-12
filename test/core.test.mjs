@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
-import {Store,parseInput} from '../lib/store.mjs';
-import {Learning,grade} from '../lib/learning.mjs';
-import {DemoProvider} from '../lib/provider.mjs';
-import {sampleText,samples} from '../lib/catalog.mjs';
+import {Store,parseInput} from '../src/store.mjs';
+import {Learning,grade} from '../src/learning.mjs';
+import {DemoProvider} from '../src/provider.mjs';
+import {sampleText,samples} from '../src/catalog.mjs';
 import {createApp} from '../server.mjs';
 const temp=()=>mkdtempSync(path.join(tmpdir(),'zhian-v2-'));
 async function seeded(){const dir=temp(),store=new Store(dir),learning=new Learning(store),p=new DemoProvider();const {ids}=store.import(sampleText);for(const id of ids)store.applyCandidate(id,await p.generate(store.get(id).source));return {dir,store,learning,close(){store.close();rmSync(dir,{recursive:true,force:true});}};}

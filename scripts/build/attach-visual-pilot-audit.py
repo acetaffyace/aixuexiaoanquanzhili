@@ -6,12 +6,15 @@ import hashlib
 import json
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
+receipt_path=ROOT/'docs/research/visual-pilot-observations-v2.json'
+if not receipt_path.is_file():
+    raise SystemExit('Missing recorded review input: '+str(receipt_path)+'; restore genuine receipts before binding. No configuration was written.')
 path=ROOT/'config/visual-pilot.json'
 pilot=json.loads(path.read_text(encoding='utf-8'))
 manifest=json.loads((ROOT/'docs/research/visual-pilot-generation.json').read_text(encoding='utf-8'))
-assets={x['path'].removeprefix('prototype/'):x for x in manifest['items']}
-revision_receipts=json.loads((ROOT/'docs/research/visual-pilot-observations-v2.json').read_text(encoding='utf-8'))
+assets={x['path'].removeprefix('prototype/').removeprefix('web/'):x for x in manifest['items']}
+revision_receipts=json.loads(receipt_path.read_text(encoding='utf-8'))
 receipts={x['card_id']:x for x in revision_receipts['cards']}
 descriptions={
     'vp01': ['蓝色手套包覆手指并握住听筒；听筒贴近耳部、电话线连向底座。'],
@@ -25,7 +28,7 @@ for card in pilot['cards']:
     card['assets']=[]
     for filename in filenames:
         a=assets[filename]
-        actual=hashlib.sha256((ROOT/'prototype'/filename).read_bytes()).hexdigest()
+        actual=hashlib.sha256((ROOT/'web'/filename).read_bytes()).hexdigest()
         assert actual==a['sha256'],filename
         card['assets'].append({'path':filename,'sha256':actual,'production':'built-in imagegen actual output','review_method':'Codex查看本地实际图像，非独立盲审，非专业安全审定'})
     if card['id'] in receipts:

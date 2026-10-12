@@ -10,3 +10,6 @@
 - 服务入口 server.mjs，默认 http://127.0.0.1:4185；数据库 data/demo.sqlite。
 - 测试使用临时数据库：`node --test test/core.test.mjs`。UI 改动运行浏览器检查，不能把测试记录写入演示数据库。
 - `.migration-backup/` 是目录迁移时保留的旧副本，不在其中继续开发、启动服务或导入业务数据。
+
+- 服务端代码在 src/，公开页面在 web/，脚本按 research/build/maintenance/verify 分组；迁移同步修改路径。
+- 模板维护来源和生成边界见 config/README.md；复现状态见 docs/engineering/reproducibility.md。缺失图片、观察凭据和审核指纹不能补造或用降低测试断言绕过。

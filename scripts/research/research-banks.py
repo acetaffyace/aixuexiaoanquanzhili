@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import requests, fitz
 from lxml import html, etree
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'research'/'question-banks'
 OUT.mkdir(parents=True,exist_ok=True)
 SOURCES=[

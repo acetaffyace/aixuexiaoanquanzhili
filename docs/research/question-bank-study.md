@@ -88,7 +88,7 @@
 
 另有 [47条人工选取的原题到模板映射](reviewed-examples.json)，以及[兰大阅读笔记中的39条代表映射](lzu-reading.md)。映射之间可能覆盖同一知识点，不当作独立题数相加。
 
-[模板规格](template-catalog.md) · [机器可读模板](../../config/card-templates.json) · [模板预览](../../prototype/templates.html)
+[模板规格](template-catalog.md) · [机器可读模板](../../config/card-templates.json) · [模板预览](../../web/templates.html)
 
 首批优先覆盖单行为判断、同场景对照、器材标识、热点、任务清单、参数看板、标签证据、分类匹配、聊天辨识与条件决策。案例证据、空间路线、制度关系与顺序模板按内容适配条件启用，不为数量强行使用。
 

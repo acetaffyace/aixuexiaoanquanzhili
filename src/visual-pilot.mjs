@@ -21,7 +21,7 @@ export function pilotBlueprintFingerprint(card){
   return hash(JSON.stringify([card.source_ref,card.source_type,card.source_archive_sha256,card.template,card.interaction,card.adapted,card.answer_mapping,card.conditions,card.required_condition_ids,card.evidence,card.visual,card.basis,card.assets,card.critical_regions]));
 }
 
-export function inspectPilotCard(card,{sources=loadPilotSources(),assetRoot=path.join(root,'prototype')}={}){
+export function inspectPilotCard(card,{sources=loadPilotSources(),assetRoot=path.join(root,'web')}={}){
   const checks=[];
   const check=(name,pass,detail='')=>checks.push({name,status:pass?'pass':'flag',detail});
   const source=sources.find(s=>s.ref===card.source_ref);
@@ -139,5 +139,5 @@ export function compiledPilotRequest(id){
   const card=loadPilot().cards.find(c=>c.id===id);if(!card||card.interaction==='blocked')throw new Error('此题不可制作');
   const manifest=JSON.parse(readFileSync(path.join(root,'docs/research/visual-pilot-generation.json'),'utf8'));
   const paths=card.visual.kind==='image'?[card.visual.image]:card.visual.kind==='paired'?card.visual.images:[];
-  return {id,mode:paths.length?'pre_generated_asset_reuse':'programmatic_render',online:false,requests:manifest.items.filter(x=>paths.includes(x.path.replace(/^prototype\//,''))).map(x=>({path:x.path,prompt:x.prompt,kind:x.kind,reference_files:x.reference_files,tool:x.tool}))};
+  return {id,mode:paths.length?'pre_generated_asset_reuse':'programmatic_render',online:false,requests:manifest.items.filter(x=>paths.includes(x.path.replace(/^(?:prototype|web)\//,''))).map(x=>({path:x.path,prompt:x.prompt,kind:x.kind,reference_files:x.reference_files,tool:x.tool}))};
 }

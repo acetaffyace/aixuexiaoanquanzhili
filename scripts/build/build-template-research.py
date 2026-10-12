@@ -1,7 +1,7 @@
 """Publish original template designs and provenance, not copied question banks."""
 import json,hashlib
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'research/question-banks';DOC=ROOT/'docs/research';DOC.mkdir(parents=True,exist_ok=True)
+ROOT=Path(__file__).resolve().parents[2];BASE=ROOT/'research/question-banks';DOC=ROOT/'docs/research';DOC.mkdir(parents=True,exist_ok=True)
 def write(p,value):
  p=ROOT/p;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,ensure_ascii=False,indent=2) if not isinstance(value,str) else value,encoding='utf8')
 sources=json.loads((BASE/'manifest.json').read_text(encoding='utf8'))
@@ -60,5 +60,5 @@ for t in templates:
  lines += [f"\n## {t['id']} {t['name']}",f"原题来源形式：{'、'.join(t['source_forms'])}。启用条件：{t['eligibility']}。",'必填槽位：'+'、'.join(t['required_slots'])+'。','画面结构：'+' → '.join(t['visual_composition'])+'。','设计示例：'+t['example_design'],'质量检查：'+'；'.join(t['qa_checks'])+'。','证据定位：'+', '.join(t['evidence_refs'])+'。']
 lines += ['\n## 通用生图约束','先固定 knowledge_point、scope、visible_evidence、hidden_facts、correctness_basis、target_difference。角色参考只控制身份；服装与PPE由任务控制。背景、角色、道具、标签、状态层独立。正误选项在人物、背景、光照、细节密度上保持一致。','图中不绘正确/错误标记，不用表情暗示答案。题干所需的文字与数字由代码排版。输出后检查额外隐患、遮挡、部件错误、标签、动作可判性。','## 失败回退','缺依据、题干条件不充分、视觉信息不足或模型无法保证专业细节：进入疑题/内容设计队列。不得默认发布，也不得自动退回纯文字题。','## 数据契约','机器可读版本：[config/card-templates.json](../../config/card-templates.json)。每题记录原题定位、知识类型、可观察证据、必需条件、模板版本、改编原因和检查结果。']
 write('docs/research/template-catalog.md','\n\n'.join(lines))
-write('prototype/template-data.js','window.TEMPLATE_CATALOG = '+json.dumps(catalog,ensure_ascii=False)+';\n')
+write('web/template-data.js','window.TEMPLATE_CATALOG = '+json.dumps(catalog,ensure_ascii=False)+';\n')
 print(json.dumps({'read_records':651,'templates':len(templates),'source_entries':len(sources)},ensure_ascii=False))

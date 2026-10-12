@@ -1,11 +1,11 @@
-import {createApp} from '../server.mjs';
+import {createApp} from '../../server.mjs';
 import {existsSync,mkdtempSync,mkdirSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const {chromium}=await import(process.env.PLAYWRIGHT_MODULE?pathToFileURL(process.env.PLAYWRIGHT_MODULE).href:'@playwright/test');
-const root=path.dirname(path.dirname(fileURLToPath(import.meta.url))),dir=mkdtempSync(path.join(tmpdir(),'zhian-v2-browser-')),out=path.join(root,'artifacts/screenshots-v2');
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE?pathToFileURL(process.env.PLAYWRIGHT_MODULE).href:'playwright');
+const root=path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url)))),dir=mkdtempSync(path.join(tmpdir(),'zhian-v2-browser-')),out=path.join(root,'artifacts/screenshots-v2');
 mkdirSync(out,{recursive:true});const app=createApp({dataDir:dir,jobDelay:5});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+app.server.address().port;
 const executablePath=['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
 const browser=await chromium.launch({headless:true,...(executablePath?{executablePath}:{})});const errors=[];
