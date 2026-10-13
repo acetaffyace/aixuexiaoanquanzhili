@@ -39,7 +39,7 @@ npm start
 | `research/` | 本地原始题库和原题快照，不提交完整档案 |
 | `scripts/` | 研究、构建、维护、验证，按副作用分组 |
 | `test/` | 自动测试，使用临时数据库 |
-| `data/`、`artifacts/` | 本地运行数据、临时检查产物，不提交 |
+| `data/`、`artifacts/` | 本地运行数据、临时检查产物；另提交数据库快照和2026-10-12生成图样 |
 | `.migration-backup/` | 封存的旧副本，不在其中开发或运行 |
 
 ## 验证
@@ -58,5 +58,7 @@ npm run verify:pilot
 ## 阅读与复现
 
 先读[题库研究](docs/research/question-bank-study.md)，再读[模板规格](docs/research/template-catalog.md)。[文档导航](docs/README.md)、[脚本输入输出](scripts/README.md)、[维护来源](config/README.md)、[本地研究说明](research/README.md)。
+
+已有本地数据库快照见 [恢复说明](data/snapshots/README.md)，新增生成图样及提示词见 [生图试做](artifacts/image-study-2026-10-12/README.md)。
 
 完整题库及部分审核输入不随仓库提供。当前可复现核心演示和页面检查，不能从干净克隆完整重建历史视觉审核结果。不要为了得到“通过”而生成审核凭据或重算指纹；缺失输入与恢复条件见复现记录。

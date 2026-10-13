@@ -1,0 +1,65 @@
+[
+  {
+    "file": "glove-phone.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2044383,
+    "sha256": "502d130a4a80893b40524f0d8926c11883bc4028daf21199c167e3a323c0fdd9"
+  },
+  {
+    "file": "machine-precheck.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2031047,
+    "sha256": "1b0960f00f0523d7883645281c91ae8f9aadffe606b8cfe68f5cbc2ff27699a9"
+  },
+  {
+    "file": "mascot-turnaround.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2044223,
+    "sha256": "8346e8235a90bad289adabc58d621e2b9650e3e90ecaa5fc66c99a8fde0d029c"
+  },
+  {
+    "file": "shopping-transfer.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2045269,
+    "sha256": "45fc98a5838304ade7e9e984f03cbbde066493a31fce13e45165cda472be07e8"
+  },
+  {
+    "file": "socket-clutter-v2.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2082299,
+    "sha256": "934de48588c9c7717a8e49ca6c7f84bcb18a919e3f1ae48e792dcfb9660f0f94"
+  },
+  {
+    "file": "socket-clutter.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2287000,
+    "sha256": "ca35c898f15091d159d9e4242995b396a678f69f2fba3794169766d613564440"
+  },
+  {
+    "file": "training-access.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 2065669,
+    "sha256": "431460649ade52ab7f1ecd8de27e36856361d562fbd4316efdb9d8ffdef2ff41"
+  }
+]

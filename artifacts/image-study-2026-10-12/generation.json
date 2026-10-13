@@ -1,0 +1,57 @@
+{
+  "status": "research_only",
+  "method": "built-in imagegen; root assistant visually inspected actual returned images; no independent audit or professional approval",
+  "sheet_prompt": "Create a production character turnaround reference sheet for the SINGLE navy-blue and cream canine mascot in the TOP ROW of the reference image. Ignore the orange fox entirely. Preserve identity: plush navy blue fur, cream vertical forehead stripe and muzzle, brown eyebrows, large brown eyes, red nose, pointed ears with pink interiors, compact child-friendly proportions, cream-tipped curved bushy tail. Reference is identity only; remove safety goggles, laboratory coat, protective gloves and black work shoes. Dress the character in a plain pale sage short-sleeve T-shirt and plain charcoal shorts, bare blue-furred paws and feet, no PPE or accessories. Neutral relaxed closed-mouth expression and relaxed standing pose with arms slightly away from torso. Render a clean 3D plush educational character MODEL SHEET on an off-white background, six full-body views in a spacious 2x3 grid: front, front-left three-quarter, exact left side profile, back, exact right side profile, front-right three-quarter. Same scale, head proportions, clothing, anatomy, ear shape, fur markings, tail attachment and neutral expression across all six. True side profiles must show the muzzle silhouette. Even studio lighting, minimal contact shadows, no perspective-distorted lens. No text, no labels, no watermark, no props, no lab equipment. This is a 2D multi-view reference sheet, not a collage of different characters.",
+  "entries": [
+    {
+      "id": "glove-phone",
+      "ref": "CPU2025:434",
+      "prompt": "Educational observation scene derived from CPU2025:434, a true/false question about wearing laboratory protective gloves to answer a phone during an experiment. Use ONLY the blue canine mascot from reference as identity; do not draw a turnaround grid. Single landscape scene, three-quarter medium closeup at a simple lab bench, white buttoned lab coat, clear safety goggles, smooth light-blue protective gloves with visible cuffs distinct from dark blue fur. One hand clearly grips a dark corded telephone receiver against the ear; fingers-to-receiver contact clearly visible and anatomically plausible. Show telephone base and coiled cord on adjacent clean desk, simple closed glassware in distant background. Neutral expression, even light, uncluttered soft plush 3D. Do not depict invisible contamination as stains; glove history belongs in an external condition card. No food, flames, spill, extra hazard, text, numbers, answer cues, red/green coding, marks or watermark.",
+      "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-0945261d-2a7d-4e32-b0ba-78b6270413cd.png",
+      "file": "glove-phone.png",
+      "status": "research_only",
+      "model": "not_exposed",
+      "usage": "not_exposed"
+    },
+    {
+      "id": "socket-clutter",
+      "ref": "TSU200:17",
+      "prompt": "Single landscape educational observation illustration derived from TSU200:17 about combustible clutter near a power socket. Closeup of a plain wall power outlet and a nearby countertop with stacked cardboard boxes and paper immediately beside the outlet. Socket, cardboard and paper spatial relationship unmistakable at mobile scale. No mascot or people, no flames, sparks, smoke, water, exposed wires, overloaded power strips or invented electrical ratings. Calm neutral evenly lit 3D educational illustration, realistic object geometry, ivory sage environment. No text, labels, warning signs, correctness colors, arrows, symbols or watermarks. Show only the stated observable clutter relationship; do not add an accident.",
+      "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-069600e0-eab2-4c03-9369-1376d0581ca7.png",
+      "file": "socket-clutter.png",
+      "status": "research_only",
+      "model": "not_exposed",
+      "usage": "not_exposed"
+    },
+    {
+      "id": "shopping-transfer",
+      "ref": "CPU2025:207",
+      "prompt": "Single landscape supporting illustration for an online clothing-shopping scam question CPU2025:207. Use the same blue canine mascot from reference, no reference grid. Mascot in plain sage T-shirt and charcoal shorts, no lab coat, goggles or protective gloves. Sitting at ordinary dorm desk holding smartphone upright, looking neutrally at screen; folded purchased shirt beside phone. Compose mascot in left third, a clearly visible large blank phone screen in center-right suitable for later programmatic message text overlay. The screen is blank light ivory, no fake UI or unreadable text. Hands naturally hold phone without obscuring screen. No money flowing, thief, police, scary faces or answer cues. Soft plush 3D, even neutral light, ordinary clean campus room. No text, numerals, verdicts, logos, watermark. Actual seller's bank-transfer request, 10 percent discount and buyer assumption must be supplied separately by code, not invented visually.",
+      "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-ef7418ab-1e4d-4027-a9b5-fa0c129cac22.png",
+      "file": "shopping-transfer.png",
+      "status": "research_only",
+      "model": "not_exposed",
+      "usage": "not_exposed"
+    },
+    {
+      "id": "training-access",
+      "ref": "TSU200:37",
+      "prompt": "Single landscape supporting scene for TSU200:37 about laboratory safety training and passing an assessment before access. Use same blue canine mascot from reference, no reference grid. Wearing ordinary sage T-shirt charcoal shorts, no lab PPE, standing outside closed plain laboratory doorway, neutrally examining a large blank off-white access-record board mounted immediately beside doorway at eye level. Board clearly linked spatially to door, front facing, unobstructed, takes approximately right half of image for later code-rendered training/assessment fields. Mascot on left, no other characters. The board has NO text, icons, green light, ticks, crosses or status marks; do not imply training completion from clothing or facial expression. Neutral soft educational 3D, bright even light, simple campus corridor. No hazard, verdict, text, numbers, watermark.",
+      "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-0bad5a8d-28e1-4747-9343-7215441c0b49.png",
+      "file": "training-access.png",
+      "status": "research_only",
+      "model": "not_exposed",
+      "usage": "not_exposed"
+    },
+    {
+      "id": "machine-precheck",
+      "ref": "QCU-M:86",
+      "prompt": "Single landscape research illustration for QCU-M:86 pre-machining checklist, not a sequence. No people. Show a coherent generic enclosed CNC lathe, powered off, transparent front guard door visibly closed, chuck gripping a simple metal workpiece visible behind window, tidy clear interior with no loose wrench. Eye-level three-quarter view showing enclosure, door and workholding at large legible scale. Matte industrial gray and muted sage, soft evenly lit educational 3D. No motion blur, spinning, sparks, hands, injury, text, numbers, indicators implying verified power isolation, arrows, ticks, crosses, watermark. Specific machine model and clamping adequacy are not established by this image; this is an illustrative draft for expert review, not a technical operation guide.",
+      "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-db58e839-6517-4147-a722-c5f46fd3b883.png",
+      "file": "machine-precheck.png",
+      "status": "research_only",
+      "model": "not_exposed",
+      "usage": "not_exposed"
+    }
+  ]
+}

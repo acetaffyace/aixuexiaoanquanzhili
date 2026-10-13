@@ -1,0 +1,7 @@
+{
+  "prompt": "Edit this educational clutter observation image. Change ONLY the wall electrical outlet plate from US sockets to a plausible mainland China standard household outlet: upper pair of round/flat compatible openings and lower three angled flat-pin openings (Chinese Type I), simple white plate, correct coherent geometry. Preserve boxes, paper, countertop, camera, lighting, textures and all other composition. No text, symbols, sparks, smoke or warnings. This is not a standard-symbol examination. Do not add new objects.",
+  "source_file": "C:\\Users\\liuqi\\.mirasim\\agent-homes\\codex-relay\\generated_images\\01a12eb0-097e-7ec3-8e33-c46359dfcb11\\exec-86e3991a-5a6f-45d4-a746-904aac396240.png",
+  "file": "socket-clutter-v2.png",
+  "observation": "已改为国内常见两孔/三孔外形；仅视觉观察，未作为标准器材图审核。",
+  "status": "research_only"
+}

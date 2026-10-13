@@ -1,5 +1,10 @@
-data/
-artifacts/
+data/*
+!data/snapshots/
+data/snapshots/*
+!data/snapshots/demo.sqlite
+!data/snapshots/README.md
+artifacts/*
+!artifacts/image-study-2026-10-12/
 node_modules/
 .env
 *.log
